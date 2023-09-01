@@ -58,7 +58,12 @@ class PokemonTests {
 		assertThat(pokemonDTO).isNotNull();
 
 	}
-
+	@DisplayName("Test para eliminar pokemon")
+	@Test
+	void testEliminarPokemon() {
+		given(pokemonRepository.findById(pokemonModel.getId())).willReturn(Optional.of(pokemonModel));
+		pokemonServiceIMP.eliminarPokemon(1);
+	}
 
 
 	@DisplayName("Test para guardar pokemon")
